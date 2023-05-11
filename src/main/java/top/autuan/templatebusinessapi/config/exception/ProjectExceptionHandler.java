@@ -1,5 +1,6 @@
 package top.autuan.templatebusinessapi.config.exception;
 
+import cn.dev33.satoken.exception.NotLoginException;
 import cn.hutool.core.collection.CollUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -66,11 +67,11 @@ public class ProjectExceptionHandler {
         return Result.fail(BaseEnum.JSON_XML_FORMAT_ERROR);
     }
 
-//    @ExceptionHandler({NotLoginException.class})
-//    public Result<Object> handleNotLogin(NotLoginException e){
-//        // todo enums
-//        return Result.fail("500013","请重新登录");
-//    }
+    @ExceptionHandler({NotLoginException.class})
+    public Result<Object> handleNotLogin(NotLoginException e){
+        // todo enums
+        return Result.fail("500013","请重新登录");
+    }
 
     @ExceptionHandler({Exception.class})
     public Result<Object> handleOther(Exception e) {
