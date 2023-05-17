@@ -6,9 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(scanBasePackages={"top.autuan.templatebusinessapi","top.autuan.templatebusinesssupport"})
-@MapperScan("top.autuan.templatebusinesssupport.**.mapper")
+@MapperScan({"top.autuan.templatebusinesssupport.**.mapper","com.baomidou.mybatisplus.samples.quickstart.mapper"})
 public class TemplateBusinessApiApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(TemplateBusinessApiApplication.class, args);
     }

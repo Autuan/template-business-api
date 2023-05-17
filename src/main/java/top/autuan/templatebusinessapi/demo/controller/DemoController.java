@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import top.autuan.templatebusinessapi.aop.OperLog;
 import top.autuan.templatebusinessapi.demo.entity.DemoReq;
 import top.autuan.templatebusinessapi.demo.entity.DemoRes;
+import top.autuan.templatebusinesssupport.article.entity.Article;
 import top.autuan.templatebusinesssupport.demo.service.DemoService;
 import top.autuan.web.Result;
 
@@ -31,5 +32,11 @@ public class DemoController {
         DemoRes res = new DemoRes(str);
        log.info("req -> {}",req);
         return Result.ok(res);
+    }
+
+    @PostMapping("/article")
+    Result<Article> article(){
+        Article article = demoService.queryArticle();
+        return Result.ok(article);
     }
 }
